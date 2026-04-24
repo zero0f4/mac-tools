@@ -255,4 +255,4 @@ Tool ontbreekt? Open een Pull Request of [issue](../../issues). Lege regels over
 
 ---
 
-**Gemaakt door Hans** — homelab-liefhebber, Mac-gebruiker, altijd nieuwsgierig naar betere tools. Check ook [zero0f4.dev](https://zero0f4.dev) voor mijn sci-fi hobby.
+**Onderhouden door [zero0f4](https://github.com/zero0f4)** — homelab-liefhebber, Mac-gebruiker, altijd nieuwsgierig naar betere tools. Check ook [zero0f4.dev](https://zero0f4.dev) voor de sci-fi kant.

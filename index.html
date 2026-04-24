@@ -111,28 +111,47 @@
   }
 
   .tool-card {
+    display: block;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px 22px;
     transition: all 0.2s;
     position: relative;
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .tool-card::after {
+    content: '↗';
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    color: var(--muted);
+    font-size: 18px;
+    opacity: 0.5;
+    transition: all 0.2s;
   }
   .tool-card:hover {
     background: var(--card-hover);
     border-color: var(--accent);
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 149, 0, 0.12);
+  }
+  .tool-card:hover::after {
+    color: var(--accent);
+    opacity: 1;
+    transform: translate(2px, -2px);
   }
   .tool-card h3 {
     margin: 0 0 6px;
     font-size: 17px;
     font-weight: 700;
-  }
-  .tool-card h3 a {
     color: var(--text);
-    text-decoration: none;
+    padding-right: 24px;
   }
-  .tool-card:hover h3 a {
+  .tool-card:hover h3 {
     color: var(--accent);
   }
   .tool-card p {
@@ -144,7 +163,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
   }
   .price {
     font-size: 12px;
@@ -155,12 +176,12 @@
   .price.free { background: rgba(48, 209, 88, 0.15); color: var(--ok); }
   .price.freemium { background: rgba(255, 159, 10, 0.15); color: var(--warn); }
   .price.paid { background: rgba(255, 149, 0, 0.15); color: var(--accent); }
-  .link-arrow {
+  .site {
     color: var(--muted);
-    font-size: 14px;
-    text-decoration: none;
+    font-size: 12px;
+    font-family: ui-monospace, monospace;
   }
-  .tool-card:hover .link-arrow { color: var(--accent); }
+  .tool-card:hover .site { color: var(--accent); }
 
   .star {
     position: absolute;
@@ -237,131 +258,125 @@
 
 <h2 id="essentials">⭐ Essentials (must-have)</h2>
 <div class="tools-grid">
-  <div class="tool-card">
+  <a class="tool-card" href="https://brew.sh" target="_blank" rel="noopener">
     <span class="star">★</span>
-    <h3><a href="https://brew.sh" target="_blank">Homebrew</a></h3>
+    <h3>Homebrew</h3>
     <p>Dé package manager voor macOS. Alle CLI tools via `brew install`.</p>
-    <div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://brew.sh" target="_blank">brew.sh →</a></div>
-  </div>
-  <div class="tool-card">
+    <div class="meta"><span class="price free">Free</span><span class="site">brew.sh</span></div></a>
+  <a class="tool-card" href="https://betterdisplay.pro" target="_blank" rel="noopener">
     <span class="star">★</span>
-    <h3><a href="https://betterdisplay.pro" target="_blank">BetterDisplay</a></h3>
+    <h3>BetterDisplay</h3>
     <p>HiDPI-scaling, custom resoluties, fix wazige tekst op externe monitoren. Essentieel bij ultrawides.</p>
-    <div class="meta"><span class="price freemium">Free / €20 Pro</span><a class="link-arrow" href="https://betterdisplay.pro" target="_blank">betterdisplay.pro →</a></div>
-  </div>
-  <div class="tool-card">
+    <div class="meta"><span class="price freemium">Free / €20 Pro</span><span class="site">betterdisplay.pro</span></div></a>
+  <a class="tool-card" href="https://raycast.com" target="_blank" rel="noopener">
     <span class="star">★</span>
-    <h3><a href="https://raycast.com" target="_blank">Raycast</a></h3>
+    <h3>Raycast</h3>
     <p>Spotlight op steroïden. Clipboard history, snippets, window management, AI, 1000+ extensions.</p>
-    <div class="meta"><span class="price freemium">Free / $8</span><a class="link-arrow" href="https://raycast.com" target="_blank">raycast.com →</a></div>
-  </div>
-  <div class="tool-card">
+    <div class="meta"><span class="price freemium">Free / $8</span><span class="site">raycast.com</span></div></a>
+  <a class="tool-card" href="https://rectangleapp.com" target="_blank" rel="noopener">
     <span class="star">★</span>
-    <h3><a href="https://rectangleapp.com" target="_blank">Rectangle</a></h3>
+    <h3>Rectangle</h3>
     <p>Snap windows via keyboard. <code>⌃⌥← / →</code> voor halve schermen — essentieel op ultrawide.</p>
-    <div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://rectangleapp.com" target="_blank">rectangleapp.com →</a></div>
-  </div>
-  <div class="tool-card">
-    <h3><a href="https://1password.com" target="_blank">1Password</a></h3>
+    <div class="meta"><span class="price free">Free</span><span class="site">rectangleapp.com</span></div></a>
+  <a class="tool-card" href="https://1password.com" target="_blank" rel="noopener">
+    <h3>1Password</h3>
     <p>Passwords + SSH keys + 2FA + dev-secrets. Complete.</p>
-    <div class="meta"><span class="price paid">$3/mnd</span><a class="link-arrow" href="https://1password.com" target="_blank">1password.com →</a></div>
-  </div>
-  <div class="tool-card">
-    <h3><a href="https://github.com/exelban/stats" target="_blank">Stats</a></h3>
+    <div class="meta"><span class="price paid">$3/mnd</span><span class="site">1password.com</span></div></a>
+  <a class="tool-card" href="https://github.com/exelban/stats" target="_blank" rel="noopener">
+    <h3>Stats</h3>
     <p>System monitoring in menubar (CPU, RAM, netwerk, temp). Open-source iStat-alternatief.</p>
-    <div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://github.com/exelban/stats" target="_blank">github.com →</a></div>
-  </div>
+    <div class="meta"><span class="price free">Free</span><span class="site">github.com</span></div></a>
 </div>
 
 <h2 id="window">🪟 Window Management</h2>
 <div class="tools-grid">
-  <div class="tool-card"><h3><a href="https://rectangleapp.com" target="_blank">Rectangle</a></h3><p>Keyboard snap shortcuts.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://rectangleapp.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://folivora.ai/btt" target="_blank">BetterTouchTool</a></h3><p>Gestures + shortcut-beheer op epische schaal.</p><div class="meta"><span class="price paid">€10</span><a class="link-arrow" href="https://folivora.ai/btt" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://github.com/lwouis/alt-tab-macos" target="_blank">AltTab</a></h3><p>Windows-stijl ⌘-Tab met preview van vensters.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://github.com/lwouis/alt-tab-macos" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://hazeover.com" target="_blank">HazeOver</a></h3><p>Dimt inactieve vensters — superfocus.</p><div class="meta"><span class="price paid">€5</span><a class="link-arrow" href="https://hazeover.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://bartender.net" target="_blank">Bartender 5</a></h3><p>Menubar-organisator.</p><div class="meta"><span class="price paid">$16</span><a class="link-arrow" href="https://bartender.net" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://rectangleapp.com" target="_blank" rel="noopener"><h3>Rectangle</h3><p>Keyboard snap shortcuts.</p><div class="meta"><span class="price free">Free</span><span class="site">rectangleapp.com</span></div></a>
+  <a class="tool-card" href="https://folivora.ai/btt" target="_blank" rel="noopener"><h3>BetterTouchTool</h3><p>Gestures + shortcut-beheer op epische schaal.</p><div class="meta"><span class="price paid">€10</span><span class="site">folivora.ai</span></div></a>
+  <a class="tool-card" href="https://github.com/lwouis/alt-tab-macos" target="_blank" rel="noopener"><h3>AltTab</h3><p>Windows-stijl ⌘-Tab met preview van vensters.</p><div class="meta"><span class="price free">Free</span><span class="site">github.com</span></div></a>
+  <a class="tool-card" href="https://hazeover.com" target="_blank" rel="noopener"><h3>HazeOver</h3><p>Dimt inactieve vensters — superfocus.</p><div class="meta"><span class="price paid">€5</span><span class="site">hazeover.com</span></div></a>
+  <a class="tool-card" href="https://bartender.net" target="_blank" rel="noopener"><h3>Bartender 5</h3><p>Menubar-organisator.</p><div class="meta"><span class="price paid">$16</span><span class="site">bartender.net</span></div></a>
 </div>
 
 <h2 id="terminal">🖥️ Terminal & Shell</h2>
 <div class="tools-grid">
-  <div class="tool-card"><h3><a href="https://www.warp.dev" target="_blank">Warp</a></h3><p>Modern terminal met AI, workflows, blocks.</p><div class="meta"><span class="price freemium">Free / Pro</span><a class="link-arrow" href="https://www.warp.dev" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://ghostty.org" target="_blank">Ghostty</a></h3><p>Snelste terminal op Mac (GPU). Door Mitchell Hashimoto.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://ghostty.org" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://iterm2.com" target="_blank">iTerm2</a></h3><p>Klassieker. Splits, profiles, zeer configureerbaar.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://iterm2.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://starship.rs" target="_blank">Starship</a></h3><p>Universele shell-prompt — supersnel, kleurrijk.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://starship.rs" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://www.warp.dev" target="_blank" rel="noopener"><h3>Warp</h3><p>Modern terminal met AI, workflows, blocks.</p><div class="meta"><span class="price freemium">Free / Pro</span><span class="site">warp.dev</span></div></a>
+  <a class="tool-card" href="https://ghostty.org" target="_blank" rel="noopener"><h3>Ghostty</h3><p>Snelste terminal op Mac (GPU). Door Mitchell Hashimoto.</p><div class="meta"><span class="price free">Free</span><span class="site">ghostty.org</span></div></a>
+  <a class="tool-card" href="https://iterm2.com" target="_blank" rel="noopener"><h3>iTerm2</h3><p>Klassieker. Splits, profiles, zeer configureerbaar.</p><div class="meta"><span class="price free">Free</span><span class="site">iterm2.com</span></div></a>
+  <a class="tool-card" href="https://starship.rs" target="_blank" rel="noopener"><h3>Starship</h3><p>Universele shell-prompt — supersnel, kleurrijk.</p><div class="meta"><span class="price free">Free</span><span class="site">starship.rs</span></div></a>
   <div class="tool-card"><h3><code>tmux</code></h3><p>Terminal multiplexer — sessies die blijven draaien.</p><div class="meta"><span class="price free">Free</span><span class="link-arrow"><code>brew install tmux</code></span></div></div>
   <div class="tool-card"><h3><code>fzf + ripgrep + fd + bat</code></h3><p>Moderne CLI-basics die je dagelijks zult gebruiken.</p><div class="meta"><span class="price free">Free</span><span class="link-arrow"><code>brew install fzf rg fd bat</code></span></div></div>
-  <div class="tool-card"><h3><a href="https://github.com/jesseduffield/lazygit" target="_blank">lazygit</a></h3><p>Terminal Git-UI. Razendsnel, keyboard-driven.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://github.com/jesseduffield/lazygit" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://github.com/aristocratos/btop" target="_blank">btop</a></h3><p>Mooiste process-monitor ooit.</p><div class="meta"><span class="price free">Free</span><span class="link-arrow"><code>brew install btop</code></span></div></div>
+  <a class="tool-card" href="https://github.com/jesseduffield/lazygit" target="_blank" rel="noopener"><h3>lazygit</h3><p>Terminal Git-UI. Razendsnel, keyboard-driven.</p><div class="meta"><span class="price free">Free</span><span class="site">github.com</span></div></a>
+  <a class="tool-card" href="https://github.com/aristocratos/btop" target="_blank" rel="noopener"><h3>btop</h3><p>Mooiste process-monitor ooit.</p><div class="meta"><span class="price free">Free</span><span class="site"><code>brew install btop</code></span></a></div>
 </div>
 
 <h2 id="dev">💻 Development</h2>
 <div class="tools-grid">
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://cursor.com" target="_blank">Cursor</a></h3><p>VS Code fork met AI-first. Claude + GPT als coder.</p><div class="meta"><span class="price freemium">Free / $20</span><a class="link-arrow" href="https://cursor.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://code.visualstudio.com" target="_blank">VS Code</a></h3><p>Classic, 10K+ extensies.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://code.visualstudio.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://zed.dev" target="_blank">Zed</a></h3><p>Snel IDE, multiplayer-coding, geschreven in Rust.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://zed.dev" target="_blank">→</a></div></div>
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://tableplus.com" target="_blank">TablePlus</a></h3><p>Database-client (SQLite, Postgres, MySQL, Redis).</p><div class="meta"><span class="price paid">$59</span><a class="link-arrow" href="https://tableplus.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://usebruno.com" target="_blank">Bruno</a></h3><p>Open-source Postman-alternatief, Git-friendly.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://usebruno.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://proxyman.io" target="_blank">Proxyman</a></h3><p>HTTP-inspector (Charles-alternatief).</p><div class="meta"><span class="price paid">$49</span><a class="link-arrow" href="https://proxyman.io" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://cursor.com" target="_blank" rel="noopener"><span class="star">★</span><h3>Cursor</h3><p>VS Code fork met AI-first. Claude + GPT als coder.</p><div class="meta"><span class="price freemium">Free / $20</span><span class="site">cursor.com</span></div></a>
+  <a class="tool-card" href="https://code.visualstudio.com" target="_blank" rel="noopener"><h3>VS Code</h3><p>Classic, 10K+ extensies.</p><div class="meta"><span class="price free">Free</span><span class="site">code.visualstudio.com</span></div></a>
+  <a class="tool-card" href="https://zed.dev" target="_blank" rel="noopener"><h3>Zed</h3><p>Snel IDE, multiplayer-coding, geschreven in Rust.</p><div class="meta"><span class="price free">Free</span><span class="site">zed.dev</span></div></a>
+  <a class="tool-card" href="https://tableplus.com" target="_blank" rel="noopener"><span class="star">★</span><h3>TablePlus</h3><p>Database-client (SQLite, Postgres, MySQL, Redis).</p><div class="meta"><span class="price paid">$59</span><span class="site">tableplus.com</span></div></a>
+  <a class="tool-card" href="https://usebruno.com" target="_blank" rel="noopener"><h3>Bruno</h3><p>Open-source Postman-alternatief, Git-friendly.</p><div class="meta"><span class="price free">Free</span><span class="site">usebruno.com</span></div></a>
+  <a class="tool-card" href="https://proxyman.io" target="_blank" rel="noopener"><h3>Proxyman</h3><p>HTTP-inspector (Charles-alternatief).</p><div class="meta"><span class="price paid">$49</span><span class="site">proxyman.io</span></div></a>
 </div>
 
 <h2 id="docker">🐳 Docker & Containers</h2>
 <div class="tools-grid">
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://orbstack.dev" target="_blank">OrbStack</a></h3><p><strong>Razendsnel</strong> alternatief voor Docker Desktop. Ook Linux VMs. Halveert opstarttijd, minder RAM.</p><div class="meta"><span class="price freemium">Free / $8</span><a class="link-arrow" href="https://orbstack.dev" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://docker.com" target="_blank">Docker Desktop</a></h3><p>De standaard, iets zwaarder.</p><div class="meta"><span class="price free">Free personal</span><a class="link-arrow" href="https://docker.com" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://orbstack.dev" target="_blank" rel="noopener"><span class="star">★</span><h3>OrbStack</h3><p><strong>Razendsnel</strong> alternatief voor Docker Desktop. Ook Linux VMs. Halveert opstarttijd, minder RAM.</p><div class="meta"><span class="price freemium">Free / $8</span><span class="site">orbstack.dev</span></div></a>
+  <a class="tool-card" href="https://docker.com" target="_blank" rel="noopener"><h3>Docker Desktop</h3><p>De standaard, iets zwaarder.</p><div class="meta"><span class="price free">Free personal</span><span class="site">docker.com</span></div></a>
   <div class="tool-card"><h3>Colima + Lima</h3><p>Docker zonder Desktop, gratis pro-optie.</p><div class="meta"><span class="price free">Free</span><span class="link-arrow"><code>brew install colima</code></span></div></div>
 </div>
 
 <h2 id="productivity">⚡ Productivity</h2>
 <div class="tools-grid">
-  <div class="tool-card"><h3><a href="https://obsidian.md" target="_blank">Obsidian</a></h3><p>Notities in Markdown, local-first, extensible.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://obsidian.md" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://culturedcode.com/things/" target="_blank">Things 3</a></h3><p>Todo-app met prachtig ontwerp.</p><div class="meta"><span class="price paid">$50</span><a class="link-arrow" href="https://culturedcode.com/things/" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://shottr.cc" target="_blank">Shottr</a></h3><p>Screenshots + scrolling + OCR.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://shottr.cc" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://cleanshot.com" target="_blank">CleanShot X</a></h3><p>Premium screenshot-tool, annotation, cloud.</p><div class="meta"><span class="price paid">$30</span><a class="link-arrow" href="https://cleanshot.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://espanso.org" target="_blank">Espanso</a></h3><p>Text snippets met variabelen. Open-source.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://espanso.org" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://obsidian.md" target="_blank" rel="noopener"><h3>Obsidian</h3><p>Notities in Markdown, local-first, extensible.</p><div class="meta"><span class="price free">Free</span><span class="site">obsidian.md</span></div></a>
+  <a class="tool-card" href="https://culturedcode.com/things/" target="_blank" rel="noopener"><h3>Things 3</h3><p>Todo-app met prachtig ontwerp.</p><div class="meta"><span class="price paid">$50</span><span class="site">culturedcode.com</span></div></a>
+  <a class="tool-card" href="https://shottr.cc" target="_blank" rel="noopener"><h3>Shottr</h3><p>Screenshots + scrolling + OCR.</p><div class="meta"><span class="price free">Free</span><span class="site">shottr.cc</span></div></a>
+  <a class="tool-card" href="https://cleanshot.com" target="_blank" rel="noopener"><h3>CleanShot X</h3><p>Premium screenshot-tool, annotation, cloud.</p><div class="meta"><span class="price paid">$30</span><span class="site">cleanshot.com</span></div></a>
+  <a class="tool-card" href="https://espanso.org" target="_blank" rel="noopener"><h3>Espanso</h3><p>Text snippets met variabelen. Open-source.</p><div class="meta"><span class="price free">Free</span><span class="site">espanso.org</span></div></a>
 </div>
 
 <h2 id="system">🔧 System Tools</h2>
 <div class="tools-grid">
-  <div class="tool-card"><h3><a href="https://freemacsoft.net/appcleaner/" target="_blank">AppCleaner</a></h3><p>Complete uninstalls, ook launch-agents.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://freemacsoft.net/appcleaner/" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://keka.io" target="_blank">Keka</a></h3><p>Archief-maker (7z, zip, tar).</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://keka.io" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://daisydiskapp.com" target="_blank">DaisyDisk</a></h3><p>Disk-space-visualizer.</p><div class="meta"><span class="price paid">$10</span><a class="link-arrow" href="https://daisydiskapp.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://bjango.com/mac/istatmenus/" target="_blank">iStat Menus</a></h3><p>Uitgebreide menubar-stats.</p><div class="meta"><span class="price paid">$12</span><a class="link-arrow" href="https://bjango.com/mac/istatmenus/" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://www.titanium-software.fr/en/onyx.html" target="_blank">OnyX</a></h3><p>System maintenance + cleaning.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://www.titanium-software.fr/en/onyx.html" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://freemacsoft.net/appcleaner/" target="_blank" rel="noopener"><h3>AppCleaner</h3><p>Complete uninstalls, ook launch-agents.</p><div class="meta"><span class="price free">Free</span><span class="site">freemacsoft.net</span></div></a>
+  <a class="tool-card" href="https://keka.io" target="_blank" rel="noopener"><h3>Keka</h3><p>Archief-maker (7z, zip, tar).</p><div class="meta"><span class="price free">Free</span><span class="site">keka.io</span></div></a>
+  <a class="tool-card" href="https://daisydiskapp.com" target="_blank" rel="noopener"><h3>DaisyDisk</h3><p>Disk-space-visualizer.</p><div class="meta"><span class="price paid">$10</span><span class="site">daisydiskapp.com</span></div></a>
+  <a class="tool-card" href="https://bjango.com/mac/istatmenus/" target="_blank" rel="noopener"><h3>iStat Menus</h3><p>Uitgebreide menubar-stats.</p><div class="meta"><span class="price paid">$12</span><span class="site">bjango.com</span></div></a>
+  <a class="tool-card" href="https://www.titanium-software.fr/en/onyx.html" target="_blank" rel="noopener"><h3>OnyX</h3><p>System maintenance + cleaning.</p><div class="meta"><span class="price free">Free</span><span class="site">titanium-software.fr</span></div></a>
 </div>
 
 <h2 id="network">🌐 Network & Homelab</h2>
 <div class="tools-grid">
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://tailscale.com" target="_blank">Tailscale</a></h3><p>WireGuard VPN — zero-config toegang tot homelab.</p><div class="meta"><span class="price free">Free (100 devices)</span><a class="link-arrow" href="https://tailscale.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://wireshark.org" target="_blank">Wireshark</a></h3><p>Netwerk-analyse, packet capture.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://wireshark.org" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://panic.com/transmit/" target="_blank">Transmit</a></h3><p>Prachtige FTP/SFTP/S3 client.</p><div class="meta"><span class="price paid">$45</span><a class="link-arrow" href="https://panic.com/transmit/" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://royalapps.com" target="_blank">Royal TSX</a></h3><p>SSH/RDP/VNC session manager.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://royalapps.com" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://tailscale.com" target="_blank" rel="noopener"><span class="star">★</span><h3>Tailscale</h3><p>WireGuard VPN — zero-config toegang tot homelab.</p><div class="meta"><span class="price free">Free (100 devices)</span><span class="site">tailscale.com</span></div></a>
+  <a class="tool-card" href="https://wireshark.org" target="_blank" rel="noopener"><h3>Wireshark</h3><p>Netwerk-analyse, packet capture.</p><div class="meta"><span class="price free">Free</span><span class="site">wireshark.org</span></div></a>
+  <a class="tool-card" href="https://panic.com/transmit/" target="_blank" rel="noopener"><h3>Transmit</h3><p>Prachtige FTP/SFTP/S3 client.</p><div class="meta"><span class="price paid">$45</span><span class="site">panic.com</span></div></a>
+  <a class="tool-card" href="https://royalapps.com" target="_blank" rel="noopener"><h3>Royal TSX</h3><p>SSH/RDP/VNC session manager.</p><div class="meta"><span class="price free">Free</span><span class="site">royalapps.com</span></div></a>
   <div class="tool-card"><h3>Mosh</h3><p>SSH met roaming + lagere latency.</p><div class="meta"><span class="price free">Free</span><span class="link-arrow"><code>brew install mosh</code></span></div></div>
 </div>
 
 <h2 id="security">🔒 Security & Privacy</h2>
 <div class="tools-grid">
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://obdev.at/products/littlesnitch" target="_blank">Little Snitch</a></h3><p>Application firewall — zie welke app naar buiten belt.</p><div class="meta"><span class="price paid">€45</span><a class="link-arrow" href="https://obdev.at/products/littlesnitch" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://objective-see.org/products/lulu.html" target="_blank">LuLu</a></h3><p>Gratis firewall-alternatief.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://objective-see.org/products/lulu.html" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://objective-see.org/products/knockknock.html" target="_blank">KnockKnock</a></h3><p>Scan persistent-installed malware.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://objective-see.org/products/knockknock.html" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://mullvad.net" target="_blank">Mullvad VPN</a></h3><p>Privacy-first VPN, anoniem.</p><div class="meta"><span class="price paid">€5/mnd</span><a class="link-arrow" href="https://mullvad.net" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://obdev.at/products/littlesnitch" target="_blank" rel="noopener"><span class="star">★</span><h3>Little Snitch</h3><p>Application firewall — zie welke app naar buiten belt.</p><div class="meta"><span class="price paid">€45</span><span class="site">obdev.at</span></div></a>
+  <a class="tool-card" href="https://objective-see.org/products/lulu.html" target="_blank" rel="noopener"><h3>LuLu</h3><p>Gratis firewall-alternatief.</p><div class="meta"><span class="price free">Free</span><span class="site">objective-see.org</span></div></a>
+  <a class="tool-card" href="https://objective-see.org/products/knockknock.html" target="_blank" rel="noopener"><h3>KnockKnock</h3><p>Scan persistent-installed malware.</p><div class="meta"><span class="price free">Free</span><span class="site">objective-see.org</span></div></a>
+  <a class="tool-card" href="https://mullvad.net" target="_blank" rel="noopener"><h3>Mullvad VPN</h3><p>Privacy-first VPN, anoniem.</p><div class="meta"><span class="price paid">€5/mnd</span><span class="site">mullvad.net</span></div></a>
 </div>
 
 <h2 id="ai">🤖 AI & Local LLMs</h2>
 <div class="tools-grid">
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://ollama.com" target="_blank">Ollama</a></h3><p>Run local LLMs (Llama, Mistral, Qwen).</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://ollama.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://lmstudio.ai" target="_blank">LM Studio</a></h3><p>GUI voor lokale LLMs.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://lmstudio.ai" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://claude.ai" target="_blank">Claude</a></h3><p>Anthropic's chat + API.</p><div class="meta"><span class="price freemium">Free / Pro</span><a class="link-arrow" href="https://claude.ai" target="_blank">→</a></div></div>
-  <div class="tool-card"><span class="star">★</span><h3><a href="https://claude.com/product/claude-code" target="_blank">Claude Code</a></h3><p>CLI coding-agent. Deze lijst is ermee gemaakt.</p><div class="meta"><span class="price freemium">Claude Pro</span><a class="link-arrow" href="https://claude.com/product/claude-code" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://cursor.com" target="_blank">Cursor</a></h3><p>AI-first IDE.</p><div class="meta"><span class="price freemium">Free / $20</span><a class="link-arrow" href="https://cursor.com" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://ollama.com" target="_blank" rel="noopener"><span class="star">★</span><h3>Ollama</h3><p>Run local LLMs (Llama, Mistral, Qwen).</p><div class="meta"><span class="price free">Free</span><span class="site">ollama.com</span></div></a>
+  <a class="tool-card" href="https://lmstudio.ai" target="_blank" rel="noopener"><h3>LM Studio</h3><p>GUI voor lokale LLMs.</p><div class="meta"><span class="price free">Free</span><span class="site">lmstudio.ai</span></div></a>
+  <a class="tool-card" href="https://claude.ai" target="_blank" rel="noopener"><h3>Claude</h3><p>Anthropic's chat + API.</p><div class="meta"><span class="price freemium">Free / Pro</span><span class="site">claude.ai</span></div></a>
+  <a class="tool-card" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="star">★</span><h3>Claude Code</h3><p>CLI coding-agent. Deze lijst is ermee gemaakt.</p><div class="meta"><span class="price freemium">Claude Pro</span><span class="site">claude.com</span></div></a>
+  <a class="tool-card" href="https://cursor.com" target="_blank" rel="noopener"><h3>Cursor</h3><p>AI-first IDE.</p><div class="meta"><span class="price freemium">Free / $20</span><span class="site">cursor.com</span></div></a>
 </div>
 
 <h2 id="creative">🎨 Creative</h2>
 <div class="tools-grid">
-  <div class="tool-card"><h3><a href="https://figma.com" target="_blank">Figma</a></h3><p>UI/UX design, web-based.</p><div class="meta"><span class="price freemium">Free / paid</span><a class="link-arrow" href="https://figma.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://affinity.serif.com" target="_blank">Affinity Suite</a></h3><p>Photoshop/Illustrator/InDesign-alternative. Eénmalig bedrag.</p><div class="meta"><span class="price paid">€180</span><a class="link-arrow" href="https://affinity.serif.com" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://www.blender.org" target="_blank">Blender</a></h3><p>3D modeling, animation, sculpting.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://www.blender.org" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank">DaVinci Resolve</a></h3><p>Pro video-editor, gratis versie is compleet.</p><div class="meta"><span class="price freemium">Free / $300</span><a class="link-arrow" href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank">→</a></div></div>
-  <div class="tool-card"><h3><a href="https://handbrake.fr" target="_blank">Handbrake</a></h3><p>Video-transcoder.</p><div class="meta"><span class="price free">Free</span><a class="link-arrow" href="https://handbrake.fr" target="_blank">→</a></div></div>
+  <a class="tool-card" href="https://figma.com" target="_blank" rel="noopener"><h3>Figma</h3><p>UI/UX design, web-based.</p><div class="meta"><span class="price freemium">Free / paid</span><span class="site">figma.com</span></div></a>
+  <a class="tool-card" href="https://affinity.serif.com" target="_blank" rel="noopener"><h3>Affinity Suite</h3><p>Photoshop/Illustrator/InDesign-alternative. Eénmalig bedrag.</p><div class="meta"><span class="price paid">€180</span><span class="site">affinity.serif.com</span></div></a>
+  <a class="tool-card" href="https://www.blender.org" target="_blank" rel="noopener"><h3>Blender</h3><p>3D modeling, animation, sculpting.</p><div class="meta"><span class="price free">Free</span><span class="site">blender.org</span></div></a>
+  <a class="tool-card" href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener"><h3>DaVinci Resolve</h3><p>Pro video-editor, gratis versie is compleet.</p><div class="meta"><span class="price freemium">Free / $300</span><span class="site">blackmagicdesign.com</span></div></a>
+  <a class="tool-card" href="https://handbrake.fr" target="_blank" rel="noopener"><h3>Handbrake</h3><p>Video-transcoder.</p><div class="meta"><span class="price free">Free</span><span class="site">handbrake.fr</span></div></a>
 </div>
 
 <div class="setup-block" id="setup">
@@ -396,8 +411,8 @@ echo "✅ Alles geïnstalleerd."</code></pre>
 </main>
 
 <footer>
-  <p>Gemaakt door Hans · Volg op <a href="https://zero0f4.dev" target="_blank">zero0f4.dev</a></p>
-  <p>Tool ontbreekt? <a href="https://github.com/" target="_blank">Open een PR</a>. MIT licensed.</p>
+  <p>Onderhouden door <a href="https://github.com/zero0f4" target="_blank">zero0f4</a> · <a href="https://zero0f4.dev" target="_blank">zero0f4.dev</a></p>
+  <p>Tool ontbreekt? <a href="https://github.com/zero0f4/mac-tools" target="_blank">Open een PR</a>. MIT licensed.</p>
 </footer>
 
 </body>
